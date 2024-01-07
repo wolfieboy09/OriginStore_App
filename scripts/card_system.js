@@ -1,18 +1,30 @@
-const apps = document.getElementsByClassName('cards');
+const Apps = document.getElementsByClassName('cards');
 const apiURL = '';
-const jsonResponseElement = document.getElementById('jsonResponse');
 
 function getApps() {
-    return fetch('http://localhost:8000/data_test.json') // temporary
-    .then(responce => {
-        if (!responce.ok) {
-            throw new Error('Failed to fetch (Network not okay)');
-        }
-        return responce.json()
-    })
-    .catch(error => {
-        console.error('Problem with fetch operation: ', error)
-    });
+    return {
+        "apps": 
+        [
+            {
+                "name": "test-1", 
+                "curr_ver": "1", 
+                "required_ver": "399", 
+                "authors": ["Wolfieboy09"], 
+                "author_link_types": ["github"], 
+                "links": [], 
+                "description": "This is a silly little test :D"
+                }, 
+            {
+                "name": "test-2", 
+                "curr_ver": "2", 
+                "required_ver": "400", 
+                "authors": ["Mist"], 
+                "author_link_types": ["discord"], 
+                "links": [], 
+                "description": "This is another silly little test :D"
+                }
+        ]
+    };
 }
 
-jsonResponseElement.textContent = JSON.stringify(getApps(), null, 2);
+document.getElementsByClassName('cards').innerHTML = "Hey!!!";
