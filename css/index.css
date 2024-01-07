@@ -12,3 +12,17 @@ html, body {
 .title_button {
     position: relative;
 }
+
+
+#app_card {
+    border-radius: 10%;
+    border-color: #57cdac;
+    margin: auto;
+    text-align: center;
+    border-radius: 25px;
+    background: #36374f;
+    padding: 20px;
+    width: 200px;
+    height: auto;
+    color: white;
+}
