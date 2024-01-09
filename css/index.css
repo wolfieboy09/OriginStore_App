@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html, body {
+body {
     background-color: #2f2f30;
+    overflow: hidden;
 }
 
 .title {
@@ -15,6 +16,7 @@ html, body {
 
 
 #app_card {
+    z-index: 1;
     border-radius: 10%;
     border-color: #57cdac;
     margin: auto;
@@ -25,4 +27,9 @@ html, body {
     width: 200px;
     height: auto;
     color: white;
+}
+
+canvas {
+    position: absolute;
+    z-index: -1;
 }
