@@ -2,6 +2,7 @@ const create_account_bttn = document.getElementById("make_account");
 const login_bttn = document.getElementById("login");
 
 
+//TODO -- Goes "null" error sometimes :(
 create_account_bttn.onclick = function() {
     window.location.href = "create_account.html";
 };
