@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
     <link rel="stylesheet" href="/css/index.css">
+    <style>
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
     <canvas width="500" height="500"></canvas>
     <script src="/scripts/index.js" async></script>
     <script src="/scripts/background.js"></script>
@@ -13,8 +36,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OriginStore | Main Page</title>
 </head>
+
 <body>
-    
+
     <div class="title">
         <h1 id="title">OriginStore</h1>
         <div class="button-container">
@@ -22,14 +46,17 @@
             <button class="title_button" id="login">Login</button>
         </div>
     </div>
-    
+
     <div class="search-container">
         <input type="text" class="search-bar" placeholder="Search apps for OriginOS..." oninput="searchApps()">
     </div>
-    
+
     <div class="cards" id="appList">
         <!-- App cards will be dynamically added here -->
     </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;"></div>
 
     <!-- Modal Popup -->
     <div id="appModal" class="modal">
@@ -40,7 +67,13 @@
     </div>
 
     <script>
-        let apps;  // Declare the variable outside of the function scope
+        let apps; // Declare the variable outside of the function scope
+
+        // Function to toggle loading spinner visibility
+        function toggleLoadingSpinner(show) {
+            const loadingSpinner = document.getElementById("loadingSpinner");
+            loadingSpinner.style.display = show ? "block" : "none";
+        }
 
         // Function to render app cards based on the data
         function renderAppCards(apps) {
@@ -101,19 +134,24 @@
         }
 
         // Fetch app data from the API
+        toggleLoadingSpinner(true); // Show loading spinner
         fetch('https://origin-store-app-backend.onrender.com/applications', {
-            method: "GET",
-            mode: 'cors',
-            headers: {
-                'Content-Type': "application/json",
-            }
-        })
+                method: "GET",
+                mode: 'cors',
+                headers: {
+                    'Content-Type': "application/json",
+                }
+            })
             .then(response => response.json())
             .then(data => {
-                apps = data.apps;  // Assign data.apps to the global variable
+                apps = data.apps; // Assign data.apps to the global variable
                 renderAppCards(apps);
+                toggleLoadingSpinner(false); // Hide loading spinner
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                toggleLoadingSpinner(false); // Hide loading spinner in case of error
+            });
 
         // Modal functions
         function openModal(app) {
@@ -149,4 +187,5 @@
         };
     </script>
 </body>
+
 </html>
