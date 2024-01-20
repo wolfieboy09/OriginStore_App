@@ -4,11 +4,11 @@ body {
     background-color: #2f2f30;
     overflow: hidden;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .title {
     background-color: #57cdac;
-    font-family: 'Poppins', sans-serif;
     padding: 20px;
     text-align: center;
     display: flex;
@@ -17,78 +17,11 @@ body {
 
 .title h1 {
     margin: 0;
-}
-
-.title_button {
-    margin: 0 10px;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.card {
-    z-index: 1;
-    border-radius: 10%;
-    border: 2px solid #57cdac;
-    margin: auto;
-    text-align: center;
-    border-radius: 25px;
-    background: #36374f;
-    padding: 20px;
-    width: 300px;
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.card-name {
-    margin: 0;
-}
-
-.card-version,
-.card-required-version {
-    margin: 10px 0;
-}
-
-.search-bar {
-    padding: 8px;
-    margin-bottom: 10px;
-    width: 70%;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-}
-
-.view-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
     color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.view-button:hover {
-    background-color: #45a049;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.view-button:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-canvas {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
+.button-container {
+    margin-left: auto;
 }
 
 .title_button {
@@ -114,6 +47,66 @@ canvas {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.button-container {
-    margin-left: auto;
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    z-index: 1;
+    border-radius: 10%;
+    border: 2px solid #57cdac;
+    margin: auto;
+    text-align: center;
+    border-radius: 25px;
+    background: #36374f;
+    padding: 20px;
+    width: 300px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-name {
+    margin: 0;
+    color: #fff;
+}
+
+.card-version,
+.card-required-version {
+    margin: 10px 0;
+    color: #bbb;
+}
+
+.search-bar {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 70%;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    color: #333;
+}
+
+.view-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #45a049;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.view-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
