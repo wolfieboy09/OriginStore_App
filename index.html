@@ -146,11 +146,11 @@
             .then(data => {
                 apps = data.apps; // Assign data.apps to the global variable
                 renderAppCards(apps);
-                toggleLoadingSpinner(false); // Hide loading spinner
+                setTimeout(() => toggleLoadingSpinner(false), 1000); // Hide loading spinner after 1 second
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
-                toggleLoadingSpinner(false); // Hide loading spinner in case of error
+                setTimeout(() => toggleLoadingSpinner(false), 1000); // Hide loading spinner after 1 second in case of error
             });
 
         // Modal functions
