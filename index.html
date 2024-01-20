@@ -135,10 +135,12 @@
 
         // Modal functions
         function openModal(app) {
+            toggleLoadingSpinner(true);
             const modal = document.getElementById("appModal");
             const modalContent = document.getElementById("modalContent");
             modalContent.innerHTML = getAppDetailsHTML(app);
             modal.style.display = "block";
+            setTimeout(() => toggleLoadingSpinner(false), 1000);
         }
 
         function closeModal() {
