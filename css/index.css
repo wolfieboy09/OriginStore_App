@@ -131,9 +131,11 @@ canvas {
 .search-bar {
     padding: 8px;
     width: 70%;
-    border: 1px solid #aaa;
+    background-color: #333; /* Dark background color */
+    border: 1px solid #555; /* Dark border color */
     border-radius: 5px;
     font-size: 14px;
+    color: #fff; /* Text color */
 }
 
 /* Additional styling for hover and focus */
