@@ -25,9 +25,10 @@ body {
 
 .cards {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: flex-start; /* Start from the left */
+    align-items: flex-start; /* Start from the top */
+    height: auto; /* Auto height */
     width: 70vw;
     background-color: #333;
     padding: 20px;
@@ -40,7 +41,7 @@ body {
     z-index: 1;
     border-radius: 10%;
     border: 2px solid #57cdac;
-    margin: auto;
+    margin: 10px; /* Add margin between cards */
     text-align: center;
     border-radius: 25px;
     background: #36374f;
