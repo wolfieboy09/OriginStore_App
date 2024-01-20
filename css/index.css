@@ -30,7 +30,7 @@ body {
     height: 100vh;
 }
 
-#app_card {
+.card {
     z-index: 1;
     border-radius: 10%;
     border: 2px solid #57cdac;
@@ -39,8 +39,48 @@ body {
     border-radius: 25px;
     background: #36374f;
     padding: 20px;
-    width: 200px;
+    width: 300px;
     color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-name {
+    margin: 0;
+}
+
+.card-version,
+.card-required-version {
+    margin: 10px 0;
+}
+
+.search-bar {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 70%;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.view-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #45a049;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.view-button:focus {
+    outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
