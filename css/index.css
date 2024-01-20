@@ -11,6 +11,9 @@ body {
     font-family: 'Poppins', sans-serif;
     padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title h1 {
