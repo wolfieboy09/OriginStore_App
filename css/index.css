@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-/* General Styles */
-
 body {
     background-color: #2f2f30;
     overflow: hidden;
@@ -81,32 +79,175 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ... (Other styles remain unchanged) */
-
-/* Media Queries for Responsive Design */
-
-@media only screen and (max-width: 768px) {
-    /* Styles for screens up to 768 pixels wide */
-    .cards {
-        width: 90vw;
-    }
-
-    .card {
-        width: 80vw;
-    }
-
-    /* ... (Adjust other styles as needed) */
+.view-button:hover {
+    background-color: #45a049;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (max-width: 480px) {
-    /* Styles for screens up to 480 pixels wide */
-    .cards {
-        width: 95vw;
-    }
+.view-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-    .card {
-        width: 90vw;
-    }
+canvas {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
 
-    /* ... (Adjust other styles as needed) */
+.title_button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.title_button:hover {
+    background-color: #555;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.title_button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.button-container {
+    margin-left: auto;
+}
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-bar {
+    padding: 8px;
+    width: 70%;
+    background-color: #333; /* Dark background color */
+    border: 1px solid #555; /* Dark border color */
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff; /* Text color */
+}
+
+/* Additional styling for hover and focus */
+.search-bar:hover,
+.search-bar:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 15px; /* Adjust the value to change the roundness */
+    width: 70%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #fff;
+}
+
+.modal-content p {
+    color: #aaa;
+    margin: 10px 0;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+}
+
+/* For Edge */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #333;
+}
+
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.spinner {
+    width: 80px; /* Increased width */
+    height: 80px; /* Increased height */
+    margin: 100px auto;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top-color: #5797ff;
+    animation: spin 1s infinite linear;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
