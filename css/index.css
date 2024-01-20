@@ -123,3 +123,22 @@ canvas {
 .button-container {
     margin-left: auto;
 }
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-bar {
+    padding: 8px;
+    width: 70%;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Additional styling for hover and focus */
+.search-bar:hover,
+.search-bar:focus {
+    border-color: #333;
+    outline: none;
+}
