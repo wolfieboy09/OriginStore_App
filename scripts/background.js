@@ -1,4 +1,3 @@
-
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -63,7 +62,9 @@ function drawPoints() {
 
 function animate() {
     drawPoints();
-    requestAnimationFrame(animate);
+    setTimeout(function() {
+        requestAnimationFrame(animate);
+    }, 100); // Increase or decrease the delay (in milliseconds) to control the speed
 }
 
 resize();
@@ -71,4 +72,3 @@ createPoints();
 animate();
 
 window.addEventListener('resize', resize);
-    
