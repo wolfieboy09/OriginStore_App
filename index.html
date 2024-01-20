@@ -31,68 +31,81 @@
         <!-- App cards will be dynamically added here -->
     </div>
     <script>
-        let apps;  // Declare the variable outside of the function scope
+    let apps;  // Declare the variable outside of the function scope
 
-        // Function to render app cards based on the data
-        function renderAppCards(apps) {
-            const appListContainer = document.getElementById("appList");
-            appListContainer.innerHTML = ""; // Clear existing app cards
+    // Function to render app cards based on the data
+    function renderAppCards(apps) {
+        const appListContainer = document.getElementById("appList");
+        appListContainer.innerHTML = ""; // Clear existing app cards
 
-            apps.forEach(app => {
-                const card = document.createElement("div");
-                card.classList.add("card");
+        apps.forEach(app => {
+            const card = document.createElement("div");
+            card.classList.add("card");
 
-                const name = document.createElement("h3");
-                name.classList.add("card-name");
-                name.textContent = app.name;
+            const name = document.createElement("h3");
+            name.classList.add("card-name");
+            name.textContent = `Name: ${app.name}`;
 
-                const version = document.createElement("h3");
-                version.classList.add("card-version");
-                version.textContent = `Version: ${app.curr_ver}`;
+            const version = document.createElement("h3");
+            version.classList.add("card-version");
+            version.textContent = `Version: ${app.curr_ver}`;
 
-                const requiredVersion = document.createElement("h3");
-                requiredVersion.classList.add("card-required-version");
-                requiredVersion.textContent = `Required Version: ${app.required_ver}`;
+            const requiredVersion = document.createElement("h3");
+            requiredVersion.classList.add("card-required-version");
+            requiredVersion.textContent = `Required Version: ${app.required_ver}`;
 
-                const description = document.createElement("p");
-                description.textContent = app.description;
+            const description = document.createElement("p");
+            description.textContent = `Description: ${app.description}`;
 
-                const viewButton = document.createElement("button");
-                viewButton.classList.add("view-button");
-                viewButton.textContent = "View App";
+            const authors = document.createElement("p");
+            authors.textContent = `Authors: ${app.authors.join(", ")}`;
 
-                card.appendChild(name);
-                card.appendChild(version);
-                card.appendChild(requiredVersion);
-                card.appendChild(description);
-                card.appendChild(viewButton);
+            const authorLinks = document.createElement("p");
+            authorLinks.textContent = `Author Links: ${app.author_link_types.map((type, index) => `${type}: ${app.authors[index]}`).join(", ")}`;
 
-                appListContainer.appendChild(card);
-            });
+            const links = document.createElement("p");
+            links.textContent = `Links: ${app.links.join(", ")}`;
+
+            const viewButton = document.createElement("button");
+            viewButton.classList.add("view-button");
+            viewButton.textContent = "View App";
+
+            card.appendChild(name);
+            card.appendChild(version);
+            card.appendChild(requiredVersion);
+            card.appendChild(description);
+            card.appendChild(authors);
+            card.appendChild(authorLinks);
+            card.appendChild(links);
+            card.appendChild(viewButton);
+
+            appListContainer.appendChild(card);
+        });
+    }
+
+    // Function to perform search
+    function searchApps() {
+        const searchTerm = document.querySelector(".search-bar").value.toLowerCase();
+        const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchTerm));
+        renderAppCards(filteredApps);
+    }
+
+    // Fetch app data from the API
+    fetch('https://origin-store-app-backend.onrender.com/applications', {
+        method: "GET",
+        mode: 'cors',
+        headers: {
+            'Content-Type': "application/json",
         }
-
-        // Function to perform search
-        function searchApps() {
-            const searchTerm = document.querySelector(".search-bar").value.toLowerCase();
-            const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchTerm));
-            renderAppCards(filteredApps);
-        }
-
-        // Fetch app data from the API
-        fetch('https://origin-store-app-backend.onrender.com/applications', {
-            method: "GET",
-            mode: 'cors',
-            headers: {
-                'Content-Type': "application/json",
-            }
+    })
+        .then(response => response.json())
+        .then(data => {
+            apps = data.apps;  // Assign data.apps to the global variable
+            renderAppCards(apps);
         })
-            .then(response => response.json())
-            .then(data => {
-                apps = data.apps;  // Assign data.apps to the global variable
-                renderAppCards(apps);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
+        .catch(error => console.error('Error fetching data:', error));
+</script>
+
     
 </body>
 </html>
