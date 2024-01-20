@@ -32,19 +32,12 @@
     </div>
 
     <script>
-        // Sample data (replace with your actual data)
-        const apps = [
-            { name: "App1", version: "1", requiredVersion: "3.9.9" },
-            { name: "App2", version: "2", requiredVersion: "4.0.0" },
-            // Add more app data as needed
-        ];
-
-        // Function to render app cards based on the search input
-        function renderAppCards(filteredApps) {
+        // Function to render app cards based on the data
+        function renderAppCards(apps) {
             const appListContainer = document.getElementById("appList");
             appListContainer.innerHTML = ""; // Clear existing app cards
 
-            filteredApps.forEach(app => {
+            apps.forEach(app => {
                 const card = document.createElement("div");
                 card.classList.add("card");
 
@@ -54,11 +47,14 @@
 
                 const version = document.createElement("h3");
                 version.classList.add("card-version");
-                version.textContent = `Version: ${app.version}`;
+                version.textContent = `Version: ${app.curr_ver}`;
 
                 const requiredVersion = document.createElement("h3");
                 requiredVersion.classList.add("card-required-version");
-                requiredVersion.textContent = `Required Version: ${app.requiredVersion}`;
+                requiredVersion.textContent = `Required Version: ${app.required_ver}`;
+
+                const description = document.createElement("p");
+                description.textContent = app.description;
 
                 const viewButton = document.createElement("button");
                 viewButton.classList.add("view-button");
@@ -67,6 +63,7 @@
                 card.appendChild(name);
                 card.appendChild(version);
                 card.appendChild(requiredVersion);
+                card.appendChild(description);
                 card.appendChild(viewButton);
 
                 appListContainer.appendChild(card);
@@ -80,8 +77,14 @@
             renderAppCards(filteredApps);
         }
 
-        // Initial rendering with all apps
-        renderAppCards(apps);
+        // Fetch app data from the API
+        fetch('https://origin-store-app-backend.onrender.com/applications')
+            .then(response => response.json())
+            .then(data => {
+                const apps = data.apps;
+                renderAppCards(apps);
+            })
+            .catch(error => console.error('Error fetching data:', error));
     </script>
 </body>
 </html>
