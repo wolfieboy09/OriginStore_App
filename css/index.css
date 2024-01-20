@@ -3,56 +3,71 @@
 body {
     background-color: #2f2f30;
     overflow: hidden;
+    margin: 0;
 }
 
 .title {
     background-color: #57cdac;
     font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+
+.title h1 {
+    margin: 0;
 }
 
 .title_button {
-    position: relative;
+    margin: 0 10px;
 }
 
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 #app_card {
     z-index: 1;
     border-radius: 10%;
-    border-color: #57cdac;
+    border: 2px solid #57cdac;
     margin: auto;
     text-align: center;
     border-radius: 25px;
     background: #36374f;
     padding: 20px;
     width: 200px;
-    height: auto;
     color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 canvas {
     position: absolute;
     z-index: -1;
+    top: 0;
+    left: 0;
 }
 
 .title_button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #333;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .title_button:hover {
-  background-color: #555;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #555;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .title_button:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
