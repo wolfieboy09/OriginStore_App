@@ -79,7 +79,10 @@
         // Fetch app data from the API
         fetch('https://origin-store-app-backend.onrender.com/applications', {
             method: "GET",
-            mode: 'cors'
+            mode: 'cors',
+            headers: {
+                'Content-Type': "application/json",
+            }
         })
             .then(response => response.json())
             .then(data => {
