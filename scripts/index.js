@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 newDiv.className = item.name;
                 newDiv.id = 'app_card';
                 newDiv.innerHTML = `
-                    <h3 id="${item.name}.name">${item.name}</h3>
-                `;
+                    <h3 id="${item.name}.name">${item.name}</h3>`;
                 app_card.appendChild(newDiv);
             });
         })
