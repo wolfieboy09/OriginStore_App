@@ -50,14 +50,14 @@ body {
     width: 300px;
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease; /* Smooth transition effect */
+    transition: transform 0.3s ease; /* Smooth transition effect for transform property */
 
     /* Hover effect */
     &:hover {
-        width: 320px; /* Change width on hover */
-        height: 220px; /* Change height on hover */
+        transform: scale(1.1); /* Increase scale on hover */
     }
 }
+
 
 .card-name {
     margin: 0;
