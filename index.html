@@ -31,60 +31,6 @@
         <!-- App cards will be dynamically added here -->
     </div>
 
-    <script>
-        // Function to render app cards based on the data
-        function renderAppCards(apps) {
-            const appListContainer = document.getElementById("appList");
-            appListContainer.innerHTML = ""; // Clear existing app cards
-
-            apps.forEach(app => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-
-                const name = document.createElement("h3");
-                name.classList.add("card-name");
-                name.textContent = app.name;
-
-                const version = document.createElement("h3");
-                version.classList.add("card-version");
-                version.textContent = `Version: ${app.curr_ver}`;
-
-                const requiredVersion = document.createElement("h3");
-                requiredVersion.classList.add("card-required-version");
-                requiredVersion.textContent = `Required Version: ${app.required_ver}`;
-
-                const description = document.createElement("p");
-                description.textContent = app.description;
-
-                const viewButton = document.createElement("button");
-                viewButton.classList.add("view-button");
-                viewButton.textContent = "View App";
-
-                card.appendChild(name);
-                card.appendChild(version);
-                card.appendChild(requiredVersion);
-                card.appendChild(description);
-                card.appendChild(viewButton);
-
-                appListContainer.appendChild(card);
-            });
-        }
-
-        // Function to perform search
-        function searchApps() {
-            const searchTerm = document.querySelector(".search-bar").value.toLowerCase();
-            const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchTerm));
-            renderAppCards(filteredApps);
-        }
-
-        // Fetch app data from the API
-        fetch('https://origin-store-app-backend.onrender.com/applacations')
-            .then(response => response.json())
-            .then(data => {
-                const apps = data.apps;
-                renderAppCards(apps);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
+    
 </body>
 </html>
