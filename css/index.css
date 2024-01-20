@@ -233,14 +233,15 @@ canvas {
 }
 
 .spinner {
-    width: 40px;
-    height: 40px;
+    width: 80px; /* Increased width */
+    height: 80px; /* Increased height */
     margin: 100px auto;
     border-radius: 50%;
     border: 6px solid transparent;
     border-top-color: #5797ff;
     animation: spin 1s infinite linear;
 }
+
 
 @keyframes spin {
     0% {
