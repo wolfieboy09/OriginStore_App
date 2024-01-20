@@ -28,13 +28,14 @@ body {
     flex-wrap: wrap; /* Allow cards to wrap to the next line */
     justify-content: flex-start; /* Start from the left */
     align-items: flex-start; /* Start from the top */
-    height: auto; /* Auto height */
+    height: 70vh; /* Set maximum height */
     width: 70vw;
     background-color: #333;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     margin: auto; /* Center horizontally */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .card {
