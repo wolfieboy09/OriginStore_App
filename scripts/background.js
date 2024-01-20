@@ -64,7 +64,7 @@ function animate() {
     drawPoints();
     setTimeout(function() {
         requestAnimationFrame(animate);
-    }, 10); // Increase or decrease the delay (in milliseconds) to control the speed
+    }, 50); // Increase or decrease the delay (in milliseconds) to control the speed
 }
 
 resize();
