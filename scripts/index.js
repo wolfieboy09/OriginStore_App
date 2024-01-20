@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function getApps() {
-        return fetch('https://origin-store-app-backend.onrender.com/applacations')
+        return fetch('https://origin-store-app-backend.onrender.com/applacations', {
+            method: 'GET',
+            mode: 'cors',
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch (Network not okay)');
@@ -19,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Problem with fetch operation: ', error);
             });
     }
+    
 
     getApps()
         .then(data => {
