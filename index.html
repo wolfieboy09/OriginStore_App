@@ -128,14 +128,23 @@
             });
 
         // Modal functions
-        function openModal(app) {
-            toggleLoadingSpinner(true);
-            const modal = document.getElementById("appModal");
-            const modalContent = document.getElementById("modalContent");
-            modalContent.innerHTML = getAppDetailsHTML(app);
-            modal.style.display = "block";
-            toggleLoadingSpinner(false)
-        }
+function openModal(app) {
+    toggleLoadingSpinner(true);
+    const modal = document.getElementById("appModal");
+    const modalContent = document.getElementById("modalContent");
+
+    // Simulate loading time (1 second delay)
+    setTimeout(() => {
+        // Update modal content with app details
+        modalContent.innerHTML = getAppDetailsHTML(app);
+
+        // Hide the loading spinner
+        toggleLoadingSpinner(false);
+
+        // Display the modal
+        modal.style.display = "block";
+    }, 1000);
+}
 
         function closeModal() {
             const modal = document.getElementById("appModal");
