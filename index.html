@@ -30,7 +30,9 @@
     <div class="cards" id="appList">
         <!-- App cards will be dynamically added here -->
     </div>
-<script>
+    <script>
+        let apps;  // Declare the variable outside of the function scope
+
         // Function to render app cards based on the data
         function renderAppCards(apps) {
             const appListContainer = document.getElementById("appList");
@@ -83,7 +85,7 @@
         })
             .then(response => response.json())
             .then(data => {
-                const apps = data.apps;
+                apps = data.apps;  // Assign data.apps to the global variable
                 renderAppCards(apps);
             })
             .catch(error => console.error('Error fetching data:', error));
