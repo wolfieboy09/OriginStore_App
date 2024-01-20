@@ -52,7 +52,7 @@
 
             const requiredVersion = document.createElement("h3");
             requiredVersion.classList.add("card-required-version");
-            requiredVersion.textContent = `Required Version: ${app.required_ver}`;
+            requiredVersion.textContent = `Required OriginOS Version: ${app.required_ver}`;
 
             const description = document.createElement("p");
             description.textContent = `Description: ${app.description}`;
@@ -75,8 +75,8 @@
             card.appendChild(requiredVersion);
             card.appendChild(description);
             card.appendChild(authors);
-            card.appendChild(authorLinks);
-            card.appendChild(links);
+           // card.appendChild(authorLinks);
+          //  card.appendChild(links);
             card.appendChild(viewButton);
 
             appListContainer.appendChild(card);
