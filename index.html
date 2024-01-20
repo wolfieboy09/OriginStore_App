@@ -30,82 +30,123 @@
     <div class="cards" id="appList">
         <!-- App cards will be dynamically added here -->
     </div>
+
+    <!-- Modal Popup -->
+    <div id="appModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
     <script>
-    let apps;  // Declare the variable outside of the function scope
+        let apps;  // Declare the variable outside of the function scope
 
-    // Function to render app cards based on the data
-    function renderAppCards(apps) {
-        const appListContainer = document.getElementById("appList");
-        appListContainer.innerHTML = ""; // Clear existing app cards
+        // Function to render app cards based on the data
+        function renderAppCards(apps) {
+            const appListContainer = document.getElementById("appList");
+            appListContainer.innerHTML = ""; // Clear existing app cards
 
-        apps.forEach(app => {
-            const card = document.createElement("div");
-            card.classList.add("card");
+            apps.forEach(app => {
+                const card = document.createElement("div");
+                card.classList.add("card");
 
-            const name = document.createElement("h3");
-            name.classList.add("card-name");
-            name.textContent = `Name: ${app.name}`;
+                const name = document.createElement("h3");
+                name.classList.add("card-name");
+                name.textContent = `Name: ${app.name}`;
 
-            const version = document.createElement("h3");
-            version.classList.add("card-version");
-            version.textContent = `Version: ${app.curr_ver}`;
+                const version = document.createElement("h3");
+                version.classList.add("card-version");
+                version.textContent = `Version: ${app.curr_ver}`;
 
-            const requiredVersion = document.createElement("h3");
-            requiredVersion.classList.add("card-required-version");
-            requiredVersion.textContent = `Required OriginOS Version: ${app.required_ver}`;
+                const requiredVersion = document.createElement("h3");
+                requiredVersion.classList.add("card-required-version");
+                requiredVersion.textContent = `Required OriginOS Version: ${app.required_ver}`;
 
-            const description = document.createElement("p");
-            description.textContent = `Description: ${app.description}`;
+                const description = document.createElement("p");
+                description.textContent = `Description: ${app.description}`;
 
-            const authors = document.createElement("p");
-            authors.textContent = `Authors: ${app.authors.join(", ")}`;
+                const authors = document.createElement("p");
+                authors.textContent = `Authors: ${app.authors.join(", ")}`;
 
-            const authorLinks = document.createElement("p");
-            authorLinks.textContent = `Author Links: ${app.author_link_types.map((type, index) => `${type}: ${app.authors[index]}`).join(", ")}`;
+                const authorLinks = document.createElement("p");
+                authorLinks.textContent = `Author Links: ${app.author_link_types.map((type, index) => `${type}: ${app.authors[index]}`).join(", ")}`;
 
-            const links = document.createElement("p");
-            links.textContent = `Links: ${app.links.join(", ")}`;
+                const links = document.createElement("p");
+                links.textContent = `Links: ${app.links.join(", ")}`;
 
-            const viewButton = document.createElement("button");
-            viewButton.classList.add("view-button");
-            viewButton.textContent = "View App";
+                const viewButton = document.createElement("button");
+                viewButton.classList.add("view-button");
+                viewButton.textContent = "View App";
+                viewButton.onclick = () => openModal(app);
 
-            card.appendChild(name);
-            card.appendChild(version);
-            card.appendChild(requiredVersion);
-            card.appendChild(description);
-            card.appendChild(authors);
-           // card.appendChild(authorLinks);
-          //  card.appendChild(links);
-            card.appendChild(viewButton);
+                card.appendChild(name);
+                card.appendChild(version);
+                card.appendChild(requiredVersion);
+                card.appendChild(description);
+                card.appendChild(authors);
+                // card.appendChild(authorLinks);
+                // card.appendChild(links);
+                card.appendChild(viewButton);
 
-            appListContainer.appendChild(card);
-        });
-    }
-
-    // Function to perform search
-    function searchApps() {
-        const searchTerm = document.querySelector(".search-bar").value.toLowerCase();
-        const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchTerm));
-        renderAppCards(filteredApps);
-    }
-
-    // Fetch app data from the API
-    fetch('https://origin-store-app-backend.onrender.com/applications', {
-        method: "GET",
-        mode: 'cors',
-        headers: {
-            'Content-Type': "application/json",
+                appListContainer.appendChild(card);
+            });
         }
-    })
-        .then(response => response.json())
-        .then(data => {
-            apps = data.apps;  // Assign data.apps to the global variable
-            renderAppCards(apps);
-        })
-        .catch(error => console.error('Error fetching data:', error));
-</script>
 
-    
+        // Function to perform search
+        function searchApps() {
+            const searchTerm = document.querySelector(".search-bar").value.toLowerCase();
+            const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchTerm));
+            renderAppCards(filteredApps);
+        }
+
+        // Fetch app data from the API
+        fetch('https://origin-store-app-backend.onrender.com/applications', {
+            method: "GET",
+            mode: 'cors',
+            headers: {
+                'Content-Type': "application/json",
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                apps = data.apps;  // Assign data.apps to the global variable
+                renderAppCards(apps);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        // Modal functions
+        function openModal(app) {
+            const modal = document.getElementById("appModal");
+            const modalContent = document.getElementById("modalContent");
+            modalContent.innerHTML = getAppDetailsHTML(app);
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("appModal");
+            modal.style.display = "none";
+        }
+
+        function getAppDetailsHTML(app) {
+            return `
+                <h2>${app.name}</h2>
+                <p>Version: ${app.curr_ver}</p>
+                <p>Required OriginOS Version: ${app.required_ver}</p>
+                <p>Description: ${app.description}</p>
+                <p>Authors: ${app.authors.join(", ")}</p>
+                <p>Author Links: ${app.author_link_types.map((type, index) => `${type}: ${app.authors[index]}`).join(", ")}</p>
+                <p>Links: ${app.links.join(", ")}</p>
+            `;
+        }
+
+        // Close the modal if the user clicks outside the modal
+        window.onclick = function (event) {
+            const modal = document.getElementById("appModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
 </body>
 </html>
