@@ -73,3 +73,7 @@ canvas {
     outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+.button-container {
+    margin-left: auto;
+}
