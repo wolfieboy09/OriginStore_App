@@ -33,7 +33,9 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: auto; /* Center horizontally */
 }
+
 .card {
     z-index: 1;
     border-radius: 10%;
