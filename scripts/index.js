@@ -11,7 +11,7 @@ create_account_bttn.onclick = function() {
 const app_card = document.querySelector('.cards');
 
 function getApps() {
-    return fetch('http://localhost:8000/data_test.json')
+    return fetch('https://origin-store-app-backend.onrender.com/applacations')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch (Network not okay)');
