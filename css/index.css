@@ -48,7 +48,6 @@ body {
     background: #36374f;
     padding: 20px;
     width: 300px;
-    height: 200px; /* Set the initial height */
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease; /* Smooth transition effect */
