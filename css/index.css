@@ -21,6 +21,7 @@ body {
 
 .title_button {
     margin: 0 10px;
+    transition: transform 0.3s ease; /* Smooth transition effect for transform property */
     /* Hover effect */
     &:hover {
         transform: scale(1.05); /* Increase scale on hover */
