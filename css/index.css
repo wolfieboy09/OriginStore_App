@@ -34,7 +34,7 @@ body {
     justify-content: flex-start; /* Start from the left */
     align-items: flex-start; /* Start from the top */
     height: 70vh; /* Set maximum height */
-    width: 70vw;
+    width: 80vw;
     background-color: #333;
     padding: 20px;
     border-radius: 15px;
