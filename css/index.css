@@ -145,7 +145,7 @@ canvas {
 
 .search-bar {
     padding: 8px;
-    width: 100%;
+    width: 50%;
     height: 5%;
     background-color: #333; /* Dark background color */
     border: 1px solid #555; /* Dark border color */
@@ -208,7 +208,7 @@ canvas {
 
 /* For Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 20px; /* Increase the width to your desired value */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -228,7 +228,7 @@ canvas {
 
 /* For Edge */
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 20px; /* Increase the width to your desired value */
 }
 
 *::-webkit-scrollbar-thumb {
