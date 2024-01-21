@@ -208,7 +208,7 @@ canvas {
 
 /* For Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 5%; /* Increase the width to your desired value */
+    width: 50%; /* Increase the width to your desired value */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -228,7 +228,7 @@ canvas {
 
 /* For Edge */
 *::-webkit-scrollbar {
-    width: 5%; /* Increase the width to your desired value */
+    width: 50%; /* Increase the width to your desired value */
 }
 
 *::-webkit-scrollbar-thumb {
