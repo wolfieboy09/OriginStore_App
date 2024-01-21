@@ -145,7 +145,8 @@ canvas {
 
 .search-bar {
     padding: 8px;
-    width: 70%;
+    width: 50%;
+    height: 5%;
     background-color: #333; /* Dark background color */
     border: 1px solid #555; /* Dark border color */
     border-radius: 5px;
