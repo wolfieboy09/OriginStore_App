@@ -213,7 +213,7 @@ canvas {
 
 ::-webkit-scrollbar-thumb {
     background-color: #555;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 ::-webkit-scrollbar-track {
@@ -233,7 +233,7 @@ canvas {
 
 *::-webkit-scrollbar-thumb {
     background-color: #555;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 *::-webkit-scrollbar-track {
